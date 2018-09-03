@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ {% load staticfiles %}
+<html>
+<head>
+<title>Django</title>
+ <link rel="stylesheet" href="{% static "css/mystyle.css"%}"/>
+</head>
+<body>
+
+<h1> Welcome to tmv paradigm</h1>
+<div class="djangotmv">
+ {% if access_records %}
+ <table>
+  <thead>
+  <th>Site Name</th>
+  <th>Date Accesed</th>
+  </thead>
+     {% for acc in access_records %}
+    <tr>
+        <td> {{acc.name}}</td>
+        <td>{{acc.date}}</td>
+    </tr>
+    {% endfor %}
+ </table>
+
+    {% else %}
+    <p> No Access record Found</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
